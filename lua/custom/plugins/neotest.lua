@@ -10,6 +10,7 @@ return {
     'nvim-lua/plenary.nvim',
     'antoinemadec/FixCursorHold.nvim',
     'nvim-treesitter/nvim-treesitter',
+    'marilari88/neotest-vitest',
   },
   opts = {
     -- Can be a list of adapters like what neotest expects,
@@ -21,11 +22,12 @@ return {
         cwd = function()
           return vim.fn.getcwd()
         end,
+        args = { '-m', 'not backoffice' }, -- FIXME: Not working
       },
+      ['neotest-vitest'] = {},
     },
     -- Example for loading neotest-golang with a custom config
-    -- adapters = {
-    --   ["neotest-golang"] = {
+    -- adapters = { ["neotest-golang"] = {
     --     go_test_args = { "-v", "-race", "-count=1", "-timeout=60s" },
     --     dap_go_enabled = true,
     --   },
