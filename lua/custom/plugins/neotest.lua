@@ -22,7 +22,9 @@ return {
         cwd = function()
           return vim.fn.getcwd()
         end,
-        args = { '-m', 'not backoffice' }, -- FIXME: Not working
+        args = function()
+          return { '-m', 'not backoffice' } -- FIXME: Not working
+        end,
       },
       ['neotest-vitest'] = {},
     },
